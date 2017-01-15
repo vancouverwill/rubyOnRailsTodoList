@@ -1,0 +1,14 @@
+<%= form_for(item) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+
+    <%= select_tag(:done, options_for_select([['True',1],['False',0]],0)) %>
+
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

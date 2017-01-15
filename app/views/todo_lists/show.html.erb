@@ -6,6 +6,50 @@
 </p>
 
 
+<h2>Items</h2>
+<table class="table">
+  <tbody>
+    <% @todo_list.items.each do |item| %>
+      <tr>
+        <td>
+          <strong>Do:</strong>
+          <%= item.title %>
+        </td>
+       
+        <td>
+          <strong>state:</strong>
+          <%= item.get_state %>
+        </td>
+        <td>
+          <%= link_to 'Edit Item', edit_todo_list_item_path(item.todo_list, item) %>
+        </td>
+        <td>
+          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<h2>Add an item:</h2>
+<%= form_for([@todo_list, @todo_list.items.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+
+    <%= select_tag(:done, options_for_select([['True',1],['False',0]],0)) %>
+
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
 
 <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
 <%= link_to 'Back', todo_lists_path %>
