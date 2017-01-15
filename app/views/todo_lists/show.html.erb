@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h2>
+  <strong>Todo List:</strong>
   <%= @todo_list.title %>
-</p>
+</h2>
 
 
-<h2>Items</h2>
+<p>Items</p>
 <table class="table">
   <tbody>
     <% @todo_list.items.each do |item| %>
