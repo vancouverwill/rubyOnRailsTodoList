@@ -2,8 +2,8 @@ class Item < ApplicationRecord
   belongs_to :todo_list
 
   def get_state
-    if self.done == "1"
-      $result = 'not quite done!'
+    if self.done == true
+      $result = 'Done!'
     else
        $result =  'lots to do!'
     end

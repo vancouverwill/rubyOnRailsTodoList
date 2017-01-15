@@ -39,10 +39,11 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </p>
-  <p>
-
-    <%= select_tag(:done, options_for_select([['True',"1"],['False',"0"]],"0")) %>
-
+    <p>
+    <%= f.label :done, 'Done' %>
+    <%= f.radio_button :done, true %>
+    <%= f.label :done, 'Not Done' %>
+    <%= f.radio_button :done, false %>
   </p>
   <p>
     <%= f.submit %>
